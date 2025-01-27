@@ -7,12 +7,15 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(120deg, #ff7eb3, #ff758c);
+            background-size: 200% 200%;
+            transition: background 0.2s;
         }
 
         .fact-box {
@@ -62,6 +65,31 @@
         <button class="button" onclick="displayRandomFact()">Show Another Fact</button>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        const facts = [
+            "Bananas are berries, but strawberries are not!",
+            "Honey never spoils, even after thousands of years!",
+            "A group of flamingos is called a 'flamboyance'.",
+            "Octopuses have three hearts!",
+            "Butterflies taste with their feet."
+        ];
+
+        function displayRandomFact() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            document.getElementById('factDisplay').innerText = facts[randomIndex];
+        }
+
+        // Gradient background movement
+        document.addEventListener('mousemove', (event) => {
+            const { clientX, clientY } = event;
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            const xPercent = (clientX / width) * 100;
+            const yPercent = (clientY / height) * 100;
+
+            document.body.style.background = `radial-gradient(circle at ${xPercent}% ${yPercent}%, #ff7eb3, #ff758c)`;
+        });
+    </script>
 </body>
 </html>
