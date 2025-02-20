@@ -1,3 +1,5 @@
+
+https://itsmeniranjankr.github.io/FUN-FACTS/
 Random Facts App
 
 This project is a simple web application that displays random fun facts. It features a visually appealing design with a hovering box and a green button to generate a new fact.
